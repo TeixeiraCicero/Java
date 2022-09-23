@@ -1,6 +1,7 @@
 
 public class Cliente {
 	private int id;
+	private static int idsozinho = 1;
 	private String nomeCompleto;
 	private int cpf;
 	private String numeroCelular;
@@ -11,9 +12,9 @@ public class Cliente {
 	private String cidade;
 	private String estado;
 
-	public Cliente(int id, int cpf, String numeroCelular, String nomeCompeto, String rua, String numeroRua,
+	public Cliente( int cpf, String numeroCelular, String nomeCompeto, String rua, String numeroRua,
 			String complemento, String bairro, String cidade, String estado) {
-		this.id = id;
+		this.id = idsozinho++;
 		this.cpf = cpf;
 		this.nomeCompleto = nomeCompeto;
 		this.numeroCelular = numeroCelular;

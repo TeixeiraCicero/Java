@@ -7,15 +7,15 @@ public class MainCategoria {
 		Categoria cat2 = new Categoria();
 		Categoria cat3 = new Categoria();
 
-		cat1.setId(1);
+		//cat1.setId(1);
 		cat1.setNome("INFORMATICA");
 		cat1.setStatus(StatusCategoria.ATIVA);
 
-		cat2.setId(2);
+		//cat2.setId(2);
 		cat2.setNome("MOVEIS");
 		cat2.setStatus(StatusCategoria.INATIVA);
 		
-		cat3.setId(3);
+		//cat3.setId(3);
 		cat3.setNome("LIVROS");
 		cat3.setStatus(StatusCategoria.ATIVA);
 		

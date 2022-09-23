@@ -1,11 +1,12 @@
 
 public class Pedido {
 	private int id;
+	private static int idsozinho = 1;
 	private String data;
 	private String cliente;
 
-	public Pedido(int id, String data, String cliente) {
-		this.id = id;
+	public Pedido(String data, String cliente) {
+		this.id = idsozinho++;
 		this.data = data;
 		this.cliente = cliente;
 

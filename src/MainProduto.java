@@ -9,28 +9,28 @@ public class MainProduto {
 
 		prod1.setCategoria("INFORMATICA");
 		prod1.setDescricao("TELA 15.6', 256 GB SSD");
-		prod1.setId(1);
+		//prod1.setId(1);
 		prod1.setNomeProduto("Notebook Samsung");
 		prod1.setPrecoUnitario(3523.00);
 		prod1.setQtdEstoque(1);
 
 		prod2.setCategoria("LIVROS");
 		prod2.setDescricao("849 PAGINAS, CAPA DURA");
-		prod2.setId(2);
+		//prod2.setId(2);
 		prod2.setNomeProduto("Clean Architecture");
 		prod2.setPrecoUnitario(102.90);
 		prod2.setQtdEstoque(2);
 
 		prod3.setCategoria("INFORMATICA");
 		prod3.setDescricao("CURVO");
-		prod3.setId(3);
+		//prod3.setId(3);
 		prod3.setNomeProduto("Monitor Dell 27");
 		prod3.setPrecoUnitario(1889.00);
 		prod3.setQtdEstoque(3);
 		
 		prod4.setCategoria("LIVROS");
 		prod4.setDescricao("849 PAGINAS, CAPA DURA");
-		prod4.setId(2);
+		//prod4.setId(2);
 		prod4.setNomeProduto("Clean Architecture");
 		prod4.setPrecoUnitario(102.90);
 		prod4.setQtdEstoque(2);

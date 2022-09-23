@@ -3,11 +3,11 @@ public class MainPedido {
 
 	public static void main(String[] args) {
 
-		Pedido ped1 = new Pedido(01, "21-09-2022", "Gabi");
-		Pedido ped2 = new Pedido(02, "21-09-2022", "Eli");
-		Pedido ped3 = new Pedido(03, "21-09-2022", "Ana");
-		Pedido ped4 = new Pedido(04, "22-09-2022", "Gabi");
-		Pedido ped5 = new Pedido(05, "22-09-2022", "Ana");
+		Pedido ped1 = new Pedido("21-09-2022", "Gabi");
+		Pedido ped2 = new Pedido("21-09-2022", "Eli");
+		Pedido ped3 = new Pedido("21-09-2022", "Ana");
+		Pedido ped4 = new Pedido("22-09-2022", "Gabi");
+		Pedido ped5 = new Pedido("22-09-2022", "Ana");
 
 		System.out.println("O ID do pedido e " + ped1.getId() + ", foi feito pelo(a) cliente " + ped1.getCliente()
 				+ ", na data " + ped1.getData() + ".");

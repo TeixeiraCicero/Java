@@ -2,8 +2,13 @@
 public class Categoria {
 
 	private int id;
+	private static int idsozinho = 1;
 	private String nome;
 	private StatusCategoria status;
+	
+	public Categoria() {
+		this.id = idsozinho++;
+	}
 	
 	public int getId() {
 		return id;

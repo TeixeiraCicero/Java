@@ -2,11 +2,11 @@
 public class MainCliente {
 
 	public static void main(String[] args) {
-		Cliente cli1 = new Cliente(1, 123456789, "(45)988521548", "Ana", "AV Ayrtor Neves", "18845", "Sobrado 5",
+		Cliente cli1 = new Cliente(123456789, "(45)988521548", "Ana", "AV Ayrtor Neves", "18845", "Sobrado 5",
 				"Centro", "Foz do Iguaçu", "Parana");
-		Cliente cli2 = new Cliente(2, 987654321, "(43)981548748", "Eli", "AV Mundo Alegre", "145", "Casa", "Centro",
+		Cliente cli2 = new Cliente(987654321, "(43)981548748", "Eli", "AV Mundo Alegre", "145", "Casa", "Centro",
 				"Cascavel", "Parana");
-		Cliente cli3 = new Cliente(3, 147852369, "(41)954831548", "Gabi", "AV Terra roxa", "1815", "Apartamento 5",
+		Cliente cli3 = new Cliente(147852369, "(41)954831548", "Gabi", "AV Terra roxa", "1815", "Apartamento 5",
 				"Mundo novo", "Curitiba", "Parana");
 
 		System.out.println("o ID e " + cli1.getId() + ", o nome do Cliente e " + cli1.getNomeCompleto() + ", seu CPF e "

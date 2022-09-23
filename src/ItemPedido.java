@@ -1,7 +1,7 @@
 
 public class ItemPedido {
 	private int id;
-	private static int id2;
+	private static int idsozinho;
 	private double precoProdutoNoPedido;
 	private int quantidadeNoPedido;
 	private String nomeProduto;
@@ -11,7 +11,7 @@ public class ItemPedido {
 	
 	public ItemPedido(double precoProdutoNoPedido, int quantidadeNoPedido, String nomeProduto,
 			int numeroPedido, TipoDesconto tipoDesconto) {
-		this.id = id2++;
+		this.id = idsozinho++;
 		this.precoProdutoNoPedido = precoProdutoNoPedido;
 		this.quantidadeNoPedido = quantidadeNoPedido;
 		this.nomeProduto = nomeProduto;

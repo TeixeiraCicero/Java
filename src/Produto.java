@@ -1,11 +1,16 @@
 public class Produto {
 
 	private int id;
+	private static int idsozinho = 1;
 	private String nomeProduto;
 	private String descricao;
 	private double precoUnitario;
 	private int qtdEstoque;
 	private String categoria;
+
+	public Produto() {
+		this.id = idsozinho++;
+	}
 
 	public int getId() {
 		return id;
