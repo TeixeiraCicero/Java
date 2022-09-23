@@ -3,7 +3,7 @@ public class Categoria {
 
 	private int id;
 	private String nome;
-	private boolean stats;
+	private StatusCategoria status;
 	
 	public int getId() {
 		return id;
@@ -21,18 +21,11 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-
-	public void setStatus(boolean stats) {
-		this.stats = stats;
+	public StatusCategoria getStatus() {
+		return status;
 	}
 
-	public boolean getStatus() {
-		if (stats == true) {
-			System.out.print("Ativo. ");
-			return stats;
-		} else {
-			System.out.print("Inativo. ");
-			return stats;
-		}
+	public void setStatus(StatusCategoria status) {
+		this.status = status;
 	}
 }
