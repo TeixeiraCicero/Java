@@ -69,5 +69,4 @@ public class Produto {
 		double imposto = this.precoUnitario * 0.4;
 		return imposto;
 	}
-
 }
