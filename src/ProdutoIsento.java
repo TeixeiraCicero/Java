@@ -1,8 +1,12 @@
 
 public class ProdutoIsento extends Produto {
 	
+	
+	public ProdutoIsento(int id, String nomeProduto, double precoUnitario, int qtdEstoque, String categoria) {
+		super(id, nomeProduto, precoUnitario, qtdEstoque, categoria);
+	}
+
 	public double calculaImposto() {
-		//double imposto = super.precoUnitario * 0.0;
-		return 0; //imposto;
+		return 0;
 	}
 }
