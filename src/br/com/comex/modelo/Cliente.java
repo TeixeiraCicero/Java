@@ -4,27 +4,78 @@ public class Cliente {
 	private int id;
 	private static int idsozinho = 1;
 	private String nomeCompleto;
-	private int cpf;
+	private String cpf;
 	private String numeroCelular;
 	private String rua;
 	private String numeroRua;
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private ClienteEstado estado;
+	private String estado;
+//	private ClienteEstado estado;
 
-	public Cliente( int cpf, String numeroCelular, String nomeCompeto, String rua, String numeroRua,
-			String complemento, String bairro, String cidade, ClienteEstado estado) {
-		this.id = idsozinho++;
-		this.cpf = cpf;
-		this.nomeCompleto = nomeCompeto;
-		this.numeroCelular = numeroCelular;
-		this.rua = rua;
-		this.numeroRua = numeroRua;
+	public Cliente(int id, String nomeCompeto, String cpf, String numeroCelular, String rua, String numeroRua,
+			String complemento, String bairro, String cidade, String estado) { // ClienteEstado estado) {
+		if (id <= 0) {
+			throw new IllegalArgumentException("ID Invalido");
+		} else
+			this.id = id;
+
+		if (nomeCompeto.length() < 5) {
+			throw new IllegalArgumentException("Nome Invalido");
+		} else {
+			this.nomeCompleto = nomeCompeto;
+		}
+		if (cpf.length() < 11) {
+			throw new IllegalArgumentException("CPF Invalido");
+		} else if (cpf.length() > 14) {
+			throw new IllegalArgumentException("CPF Invalido");
+		} else {
+			this.cpf = cpf;
+		}
+
+		if (numeroCelular != null) {
+			if
+
+			(numeroCelular.length() < 11) {
+				throw new IllegalArgumentException("Telefone Invalido");
+			} else if (numeroCelular.length() > 16) {
+				throw new IllegalArgumentException("Telefone Invalido");
+			} else {
+				this.numeroCelular = numeroCelular;
+			}
+		}
+		if (rua.length() < 5) {
+			throw new IllegalArgumentException("Nome da Rua Invalido");
+		} else {
+			this.rua = rua;
+		}
+		if (numeroRua.length() <= 1) {
+			throw new IllegalArgumentException("Numero da residencia Invalido");
+		} else {
+			this.numeroRua = numeroRua;
+		}
+
 		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
+
+		if (bairro.length() <= 1) {
+			throw new IllegalArgumentException("Nome do bairro Invalido");
+		} else {
+			this.bairro = bairro;
+		}
+
+		if (cidade.length() <= 1) {
+			throw new IllegalArgumentException("Nome da cidade Invalido");
+		} else {
+			this.cidade = cidade;
+		}
+
+		if (estado.length() != 2) {
+			throw new IllegalArgumentException("Nome do estado Invalido");
+		} else {
+			this.estado = estado;
+		}
+
 	}
 
 	public int getId() {
@@ -35,7 +86,7 @@ public class Cliente {
 		return nomeCompleto;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
@@ -63,24 +114,29 @@ public class Cliente {
 		return cidade;
 	}
 
-	public ClienteEstado getEstado() {
+//	public ClienteEstado getEstado() {
+//		return estado;
+//	}
+
+	public String getEstado() {
 		return estado;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String toString() {
 		return "o ID e " 
 				+ getId() + ", o nome do Cliente e " 
-				+ getNomeCompleto() + ", seu CPF e "
-				+ getCpf() + ", seu numero de Celular e " 
-				+ getNumeroCelular() + ", Mora no Estado "
-				+ getEstado() + ", na Cidade " 
+				+ getNomeCompleto() + ", seu CPF e " 
+				+ getCpf()+ ", seu numero de Celular e " 
+				+ getNumeroCelular() + ", Mora no Estado " 
+				+ getEstado() + ", na Cidade "
 				+ getCidade() + ", no Bairro " 
-				+ getBairro() + ", na Rua "
+				+ getBairro() + ", na Rua " 
 				+ getRua() + ", no Numero " 
-				+ getNumeroRua() + ", e o complemento e "
+				+ getNumeroRua()+ ", e o complemento e " 
 				+ getComplemento();
 	}
 }
