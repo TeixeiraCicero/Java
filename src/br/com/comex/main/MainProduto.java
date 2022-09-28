@@ -1,3 +1,6 @@
+package br.com.comex.main;
+import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.ProdutoIsento;
 
 public class MainProduto {
 

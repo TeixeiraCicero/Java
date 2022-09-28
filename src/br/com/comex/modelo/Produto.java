@@ -1,3 +1,4 @@
+package br.com.comex.modelo;
 public class Produto {
 
 	private int id;

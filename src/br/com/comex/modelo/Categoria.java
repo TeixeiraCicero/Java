@@ -1,3 +1,4 @@
+package br.com.comex.modelo;
 public class Categoria {
 
 	private int id;
