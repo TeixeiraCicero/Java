@@ -11,10 +11,10 @@ public class Cliente {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private String estado;
+	private ClienteEstado estado;
 
 	public Cliente( int cpf, String numeroCelular, String nomeCompeto, String rua, String numeroRua,
-			String complemento, String bairro, String cidade, String estado) {
+			String complemento, String bairro, String cidade, ClienteEstado estado) {
 		this.id = idsozinho++;
 		this.cpf = cpf;
 		this.nomeCompleto = nomeCompeto;
@@ -25,7 +25,6 @@ public class Cliente {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
-		System.out.println("Cliente criado com sucesso.");
 	}
 
 	public int getId() {
@@ -64,7 +63,7 @@ public class Cliente {
 		return cidade;
 	}
 
-	public String getEstado() {
+	public ClienteEstado getEstado() {
 		return estado;
 	}
 
