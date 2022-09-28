@@ -2,7 +2,6 @@ package br.com.comex.modelo;
 
 public class Cliente {
 	private int id;
-	private static int idsozinho = 1;
 	private String nomeCompleto;
 	private String cpf;
 	private String numeroCelular;
@@ -11,11 +10,10 @@ public class Cliente {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private String estado;
-//	private ClienteEstado estado;
+	private ClienteEstado estado;
 
 	public Cliente(int id, String nomeCompeto, String cpf, String numeroCelular, String rua, String numeroRua,
-			String complemento, String bairro, String cidade, String estado) { // ClienteEstado estado) {
+			String complemento, String bairro, String cidade,ClienteEstado estado) {
 		if (id <= 0) {
 			throw new IllegalArgumentException("ID Invalido");
 		} else
@@ -69,13 +67,8 @@ public class Cliente {
 		} else {
 			this.cidade = cidade;
 		}
-
-		if (estado.length() != 2) {
-			throw new IllegalArgumentException("Nome do estado Invalido");
-		} else {
-			this.estado = estado;
-		}
-
+		
+		this.estado = estado;
 	}
 
 	public int getId() {
@@ -114,11 +107,7 @@ public class Cliente {
 		return cidade;
 	}
 
-//	public ClienteEstado getEstado() {
-//		return estado;
-//	}
-
-	public String getEstado() {
+	public ClienteEstado getEstado() {
 		return estado;
 	}
 
