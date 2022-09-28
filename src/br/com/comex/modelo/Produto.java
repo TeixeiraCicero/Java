@@ -98,14 +98,15 @@ public class Produto {
 	@Override
 	public String toString() {
 		return "o ID do produto é: "
-				+getId()+", sua Categoria é: "   +getCategoria()
-				+", o Nome do Produto é: "+getNomeProduto()
-				+", a descrição do Produto é: "+getDescricao()
-				+", cada Unidade Custa: R$"+getPrecoUnitario()
-				+", atualmente temos em Estoque: "+getQtdEstoque()
-				+" unidade(s) do produto, Seus impostos são de: R$"
+				+getId()+", sua Categoria é: "   
+				+getCategoria()+", o Nome do Produto é: "
+				+getNomeProduto()+", a descrição do Produto é: "
+				+getDescricao()+", cada Unidade Custa: R$"
+				+getPrecoUnitario()+", atualmente temos em Estoque: "
+				+getQtdEstoque()+" unidade(s) do produto, Seus impostos são de: R$"
 				+calculaImposto()+" por unidade, e o valor total de todos os "
-				+getNomeProduto()+" em estoque é de: R$"+calculaValorTotalEmEstoque();
+				+getNomeProduto()+" em estoque é de: R$"
+				+calculaValorTotalEmEstoque();
 		
 	}
 }

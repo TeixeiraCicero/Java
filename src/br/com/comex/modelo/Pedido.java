@@ -25,4 +25,10 @@ public class Pedido {
 		return cliente;
 	}
 
+	public String toString() {
+		return "O ID do pedido e " 
+				+ getId() + ", foi feito pelo(a) cliente " 
+				+ getCliente() + ", na data " 
+				+ getData()+ ".";
+	}
 }

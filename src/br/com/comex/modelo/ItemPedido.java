@@ -19,8 +19,6 @@ public class ItemPedido {
 		this.numeroPedido = numeroPedido;
 		this.tipoDesconto = tipoDesconto;
 		
-		
-			
 	}
 
 	public int getId() {
@@ -70,4 +68,14 @@ public class ItemPedido {
 		totalComDesconto = precoTotalSemDesconto() - calculaDesconto(0);
 		return totalComDesconto;
 	}
+	
+	public String toString() {
+		return "Foram comprados " 
+		+ getQuantidadeNoPedido() + ", " 
+		+ getNomeProduto()+ ", que custa individualmente: R$ " 
+		+ getPrecoProdutoNoPedido()+ ", o valor total do pedido foi de: R$ " 
+		+ precoTotalSemDesconto()+ ", o total do desconto é de: R$ " 
+		+ calculaDesconto(0) + "O Valor total com desconto e de: R$ "
+		+ precoTotalComDesconto(0);
+		}
 }

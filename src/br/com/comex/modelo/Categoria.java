@@ -57,6 +57,9 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria " + getNome() + " ( " + getId() + " - " + getStatus() + " ). ";
+		return "Categoria " 
+				+ getNome() + " ( " 
+				+ getId() + " - " 
+				+ getStatus() + " ). ";
 	}
 }

@@ -71,5 +71,17 @@ public class Cliente {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	public String toString() {
+		return "o ID e " 
+				+ getId() + ", o nome do Cliente e " 
+				+ getNomeCompleto() + ", seu CPF e "
+				+ getCpf() + ", seu numero de Celular e " 
+				+ getNumeroCelular() + ", Mora no Estado "
+				+ getEstado() + ", na Cidade " 
+				+ getCidade() + ", no Bairro " 
+				+ getBairro() + ", na Rua "
+				+ getRua() + ", no Numero " 
+				+ getNumeroRua() + ", e o complemento e "
+				+ getComplemento();
+	}
 }
