@@ -12,34 +12,43 @@ public class Cliente {
 	private String cidade;
 	private ClienteEstado estado;
 
-	public Cliente(int id, String nomeCompeto, String cpf, String numeroCelular, String rua, String numeroRua,
+	public Cliente(int id, String nomeCompleto, String cpf, String numeroCelular, String rua, String numeroRua,
 			String complemento, String bairro, String cidade,ClienteEstado estado) {
 		if (id <= 0) {
 			throw new IllegalArgumentException("ID Invalido");
 		} else
 			this.id = id;
-
-		if (nomeCompeto.length() < 5) {
+		if(nomeCompleto.startsWith("9")||nomeCompleto.startsWith("8")||nomeCompleto.startsWith("7")||nomeCompleto.startsWith("6")||
+				nomeCompleto.startsWith("5")||nomeCompleto.startsWith("4")||nomeCompleto.startsWith("3")||nomeCompleto.startsWith("2")||
+				nomeCompleto.startsWith("1")||nomeCompleto.startsWith("0")) {
+			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");
+		}
+		if (nomeCompleto.length() < 5) {
 			throw new IllegalArgumentException("Nome Invalido");
 		} else {
-			this.nomeCompleto = nomeCompeto;
+			this.nomeCompleto = nomeCompleto;
 		}
-		if (cpf.length() < 11) {
-			throw new IllegalArgumentException("CPF Invalido");
-		} else if (cpf.length() > 14) {
-			throw new IllegalArgumentException("CPF Invalido");
-		} else {
+		if(!cpf.matches("[0-9]{11}")) {
+			throw new IllegalArgumentException("O cpf está incorreto");
+		}else {
+			String cpf1 = cpf.substring(0,3);
+			String cpf2 = cpf.substring(3,6);
+			String cpf3 = cpf.substring(6,9);
+			String cpf4 = cpf.substring(9,11);
+			
+			cpf = cpf1+"."+cpf2+"."+cpf3+"-"+cpf4;
 			this.cpf = cpf;
 		}
-
 		if (numeroCelular != null) {
-			if
-
-			(numeroCelular.length() < 11) {
-				throw new IllegalArgumentException("Telefone Invalido");
-			} else if (numeroCelular.length() > 16) {
-				throw new IllegalArgumentException("Telefone Invalido");
-			} else {
+			if(!numeroCelular.matches("[0-9]{11}")) {
+				throw new IllegalArgumentException("O telefone está incorreto");
+			}else {
+				String tel1 = numeroCelular.substring(0,2);
+				String tel2 = numeroCelular.substring(2,3);
+				String tel3 = numeroCelular.substring(3,7);
+				String tel4 = numeroCelular.substring(7,11);
+				
+				numeroCelular = "("+tel1+") "+tel2+" "+tel3+"-"+tel4;
 				this.numeroCelular = numeroCelular;
 			}
 		}

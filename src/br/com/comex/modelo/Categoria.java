@@ -11,6 +11,11 @@ public class Categoria {
 			throw new IllegalArgumentException("ID Invalido");
 		} else
 			this.id = id;
+		if(nome.startsWith("9")||nome.startsWith("8")||nome.startsWith("7")||nome.startsWith("6")||
+				nome.startsWith("5")||nome.startsWith("4")||nome.startsWith("3")||nome.startsWith("2")||
+				nome.startsWith("1")||nome.startsWith("0")) {
+			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");}
+		
 		if (nome.length() > 3)
 			this.nome = nome;
 		else {

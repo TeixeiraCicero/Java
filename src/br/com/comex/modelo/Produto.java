@@ -15,6 +15,11 @@ public class Produto {
 			throw new IllegalArgumentException("ID Invalido");
 		} else
 			this.id = id;
+		if(nomeProduto.startsWith("9")||nomeProduto.startsWith("8")||nomeProduto.startsWith("7")||nomeProduto.startsWith("6")||
+				nomeProduto.startsWith("5")||nomeProduto.startsWith("4")||nomeProduto.startsWith("3")||nomeProduto.startsWith("2")||
+				nomeProduto.startsWith("1")||nomeProduto.startsWith("0")) {
+			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");}
+		
 		if (nomeProduto.length() < 5) {
 			throw new IllegalArgumentException("Nome do Produto Invalido");
 		} else {
