@@ -3,17 +3,27 @@ package br.com.comex.modelo;
 public class ItemPedido {
 	private int id;
 	private static int idsozinho;
-	private double precoProdutoNoPedido;
+	private double preco;
 	private int quantidadeNoPedido;
-	private String nomeProduto;
-	private int numeroPedido;
+	private Produto nomeProduto;
+	private Pedido numeroPedido;
 	private double desconto;
-	private TipoDesconto tipoDesconto = TipoDesconto.NENHUM;
+	private TipoDesconto tipoDesconto;
 	
-	public ItemPedido(double precoProdutoNoPedido, int quantidadeNoPedido, String nomeProduto,
-			int numeroPedido, TipoDesconto tipoDesconto) {
+	public ItemPedido(double preco, int quantidadeNoPedido, Produto nomeProduto,
+			Pedido numeroPedido) {
 		this.id = idsozinho++;
-		this.precoProdutoNoPedido = precoProdutoNoPedido;
+		this.preco = preco;
+		this.quantidadeNoPedido = quantidadeNoPedido;
+		this.nomeProduto = nomeProduto;
+		this.numeroPedido = numeroPedido;
+		this.tipoDesconto = TipoDesconto.NENHUM;
+		
+	}
+	public ItemPedido(double preco, int quantidadeNoPedido, Produto nomeProduto,
+			Pedido numeroPedido, TipoDesconto tipoDesconto) {
+		this.id = idsozinho++;
+		this.preco = preco;
 		this.quantidadeNoPedido = quantidadeNoPedido;
 		this.nomeProduto = nomeProduto;
 		this.numeroPedido = numeroPedido;
@@ -26,18 +36,18 @@ public class ItemPedido {
 	}
 
 	public double getPrecoProdutoNoPedido() {
-		return precoProdutoNoPedido;
+		return preco;
 	}
 
 	public int getQuantidadeNoPedido() {
 		return quantidadeNoPedido;
 	}
 
-	public String getNomeProduto() {
+	public Produto getNomeProduto() {
 		return nomeProduto;
 	}
 
-	public int getNumeroPedido() {
+	public Pedido getNumeroPedido() {
 		return numeroPedido;
 	}
 

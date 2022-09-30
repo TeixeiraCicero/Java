@@ -1,15 +1,23 @@
 package br.com.comex.main;
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ClienteEstado;
 import br.com.comex.modelo.Pedido;
 
 public class MainPedido {
 
 	public static void main(String[] args) {
+		
+		Cliente cli1 = new Cliente(1, "Craudio", "01234567891", "41999875078","RUA XV", "5812", null, "centro", "curitiba",ClienteEstado.PR);
+		Cliente cli2 = new Cliente(2, "Maria", "01234567891", "41999875078","RUA XV", "5812", null, "centro", "curitiba",ClienteEstado.PR);
+		Cliente cli3 = new Cliente(3, "Bastiao", "01234567891", "41999875078","RUA XV", "5812", null, "centro", "curitiba",ClienteEstado.PR);
+		Cliente cli4 = new Cliente(4, "Zezinho", "01234567891", "41999875078","RUA XV", "5812", null, "centro", "curitiba",ClienteEstado.PR);
+		Cliente cli5 = new Cliente(5, "Marcia", "01234567891", "41999875078","RUA XV", "5812", null, "centro", "curitiba",ClienteEstado.PR);
 
-		Pedido ped1 = new Pedido("21-09-2022", "Gabi");
-		Pedido ped2 = new Pedido("21-09-2022", "Eli");
-		Pedido ped3 = new Pedido("21-09-2022", "Ana");
-		Pedido ped4 = new Pedido("22-09-2022", "Gabi");
-		Pedido ped5 = new Pedido("22-09-2022", "Ana");
+		Pedido ped1 = new Pedido("21-09-2022",cli1);
+		Pedido ped2 = new Pedido("21-09-2022",cli2);
+		Pedido ped3 = new Pedido("21-09-2022",cli3);
+		Pedido ped4 = new Pedido("22-09-2022",cli4);
+		Pedido ped5 = new Pedido("22-09-2022",cli5);
 
 		System.out.println(ped1.toString());
 		System.out.println(ped2.toString());

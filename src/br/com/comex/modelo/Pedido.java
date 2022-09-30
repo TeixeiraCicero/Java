@@ -4,9 +4,9 @@ public class Pedido {
 	private int id;
 	private static int idsozinho = 1;
 	private String data;
-	private String cliente;
+	private Cliente cliente;
 
-	public Pedido(String data, String cliente) {
+	public Pedido(String data, Cliente cliente) {
 		this.id = idsozinho++;
 		this.data = data;
 		this.cliente = cliente;
@@ -21,7 +21,7 @@ public class Pedido {
 		return data;
 	}
 
-	public String getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 

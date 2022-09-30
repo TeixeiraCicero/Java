@@ -2,7 +2,6 @@ package br.com.comex.modelo;
 public class Categoria {
 
 	private int id;
-	private static int idsozinho = 1;
 	private String nome;
 	private StatusCategoria status;
 

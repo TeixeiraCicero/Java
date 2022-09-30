@@ -3,27 +3,27 @@ public class Produto {
 
 	private int id;
 	private static int idsozinho = 1;
-	private String nomeProduto;
+	private String nome;
 	private String descricao;
 	private double precoUnitario;
 	private int qtdEstoque;
-	private String categoria;
+	private Categoria categoria;
 
-	public Produto(int id, String nomeProduto, double precoUnitario, int qtdEstoque, String categoria) {
+	public Produto(int id, String nome, double precoUnitario, int qtdEstoque, Categoria categoria) {
 		super();
 		if (id <= 0) {
 			throw new IllegalArgumentException("ID Invalido");
 		} else
 			this.id = id;
-		if(nomeProduto.startsWith("9")||nomeProduto.startsWith("8")||nomeProduto.startsWith("7")||nomeProduto.startsWith("6")||
-				nomeProduto.startsWith("5")||nomeProduto.startsWith("4")||nomeProduto.startsWith("3")||nomeProduto.startsWith("2")||
-				nomeProduto.startsWith("1")||nomeProduto.startsWith("0")) {
+		if(nome.startsWith("9")||nome.startsWith("8")||nome.startsWith("7")||nome.startsWith("6")||
+				nome.startsWith("5")||nome.startsWith("4")||nome.startsWith("3")||nome.startsWith("2")||
+				nome.startsWith("1")||nome.startsWith("0")) {
 			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");}
 		
-		if (nomeProduto.length() < 5) {
+		if (nome.length() < 5) {
 			throw new IllegalArgumentException("Nome do Produto Invalido");
 		} else {
-			this.nomeProduto = nomeProduto;
+			this.nome = nome;
 		}
 		if (precoUnitario <= 0) {
 			throw new IllegalArgumentException("Preco Invalido");
@@ -35,6 +35,7 @@ public class Produto {
 		} else {
 			this.qtdEstoque = qtdEstoque;
 		}
+		//this.categoria = categoria;
 		if (categoria == null) {
 			throw new IllegalArgumentException("Categoria Invalida");
 		} else {
@@ -51,11 +52,11 @@ public class Produto {
 	}
 
 	public String getNomeProduto() {
-		return nomeProduto;
+		return nome;
 	}
 
 	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
+		this.nome = nomeProduto;
 	}
 
 	public String getDescricao() {
@@ -82,13 +83,13 @@ public class Produto {
 		this.qtdEstoque = qtdEstoque;
 	}
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+//	public void setCategoria(String categoria) {
+//		this.categoria = categoria;
+//	}
 
 	public double calculaValorTotalEmEstoque() {
 		double total = this.qtdEstoque * this.precoUnitario;
