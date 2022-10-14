@@ -1,31 +1,31 @@
 package br.com.comex.modelo;
+
+import java.math.BigDecimal;
+
 public class Produto {
 
 	private int id;
-	private static int idsozinho = 1;
 	private String nome;
 	private String descricao;
-	private double precoUnitario;
+	private BigDecimal precoUnitario;
 	private int qtdEstoque;
 	private Categoria categoria;
+	private Tipo tipo;
 
-	public Produto(int id, String nome, double precoUnitario, int qtdEstoque, Categoria categoria) {
+	public Produto(String nome, BigDecimal precoUnitario, int qtdEstoque, Categoria categoria, Tipo tipo) {
 		super();
-		if (id <= 0) {
-			throw new IllegalArgumentException("ID Invalido");
-		} else
-			this.id = id;
-		if(nome.startsWith("9")||nome.startsWith("8")||nome.startsWith("7")||nome.startsWith("6")||
-				nome.startsWith("5")||nome.startsWith("4")||nome.startsWith("3")||nome.startsWith("2")||
-				nome.startsWith("1")||nome.startsWith("0")) {
-			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");}
-		
+		if (nome.startsWith("9") || nome.startsWith("8") || nome.startsWith("7") || nome.startsWith("6")
+				|| nome.startsWith("5") || nome.startsWith("4") || nome.startsWith("3") || nome.startsWith("2")
+				|| nome.startsWith("1") || nome.startsWith("0")) {
+			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");
+		}
+
 		if (nome.length() < 5) {
 			throw new IllegalArgumentException("Nome do Produto Invalido");
 		} else {
 			this.nome = nome;
 		}
-		if (precoUnitario <= 0) {
+		if (precoUnitario.doubleValue() <= 0) {
 			throw new IllegalArgumentException("Preco Invalido");
 		} else {
 			this.precoUnitario = precoUnitario;
@@ -35,12 +35,49 @@ public class Produto {
 		} else {
 			this.qtdEstoque = qtdEstoque;
 		}
-		//this.categoria = categoria;
+		// this.categoria = categoria;
 		if (categoria == null) {
 			throw new IllegalArgumentException("Categoria Invalida");
 		} else {
 			this.categoria = categoria;
 		}
+
+		this.tipo = tipo;
+
+	}
+
+	public Produto( String nome, BigDecimal precoUnitario, int qtdEstoque, Categoria categoria) {
+		super();
+		
+		if (nome.startsWith("9") || nome.startsWith("8") || nome.startsWith("7") || nome.startsWith("6")
+				|| nome.startsWith("5") || nome.startsWith("4") || nome.startsWith("3") || nome.startsWith("2")
+				|| nome.startsWith("1") || nome.startsWith("0")) {
+			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");
+		}
+
+		if (nome.length() < 5) {
+			throw new IllegalArgumentException("Nome do Produto Invalido");
+		} else {
+			this.nome = nome;
+		}
+		if (precoUnitario.doubleValue() <= 0) {
+			throw new IllegalArgumentException("Preco Invalido");
+		} else {
+			this.precoUnitario = precoUnitario;
+		}
+		if (qtdEstoque <= 0) {
+			throw new IllegalArgumentException("Quantidade Invalida");
+		} else {
+			this.qtdEstoque = qtdEstoque;
+		}
+		// this.categoria = categoria;
+		if (categoria == null) {
+			throw new IllegalArgumentException("Categoria Invalida");
+		} else {
+			this.categoria = categoria;
+		}
+
+		this.tipo = Tipo.NAO_ISENTO;
 	}
 
 	public int getId() {
@@ -67,11 +104,11 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public double getPrecoUnitario() {
+	public BigDecimal getPrecoUnitario() {
 		return precoUnitario;
 	}
 
-	public void setPrecoUnitario(double precoUnitario) {
+	public void setPrecoUnitario(BigDecimal precoUnitario) {
 		this.precoUnitario = precoUnitario;
 	}
 
@@ -87,32 +124,29 @@ public class Produto {
 		return categoria;
 	}
 
-//	public void setCategoria(String categoria) {
-//		this.categoria = categoria;
-//	}
-
-	public double calculaValorTotalEmEstoque() {
-		double total = this.qtdEstoque * this.precoUnitario;
+	public BigDecimal calculaValorTotalEmEstoque() {
+		BigDecimal total = this.precoUnitario.multiply(new BigDecimal(this.qtdEstoque));
 		return total;
 	}
 
-	public double calculaImposto() {
-		double imposto = this.precoUnitario * 0.4;
-		return imposto;
+	public BigDecimal calculaImposto() {
+		if (this.tipo == Tipo.NAO_ISENTO)
+
+		{
+			BigDecimal imposto = this.precoUnitario.multiply(new BigDecimal(0.4));
+			return imposto;
+		} else
+
+		{
+			return new BigDecimal(0);
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "o ID do produto é: "
-				+getId()+", sua Categoria é: "   
-				+getCategoria()+", o Nome do Produto é: "
-				+getNomeProduto()+", a descrição do Produto é: "
-				+getDescricao()+", cada Unidade Custa: R$"
-				+getPrecoUnitario()+", atualmente temos em Estoque: "
-				+getQtdEstoque()+" unidade(s) do produto, Seus impostos são de: R$"
-				+calculaImposto()+" por unidade, e o valor total de todos os "
-				+getNomeProduto()+" em estoque é de: R$"
-				+calculaValorTotalEmEstoque();
-		
+		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", precoUnitario=" + precoUnitario
+				+ ", qtdEstoque=" + qtdEstoque + ", categoria=" + categoria + ", tipo=" + tipo + "]";
 	}
+
+	
 }

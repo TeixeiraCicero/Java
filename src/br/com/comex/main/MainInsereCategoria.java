@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import br.com.comex.jdbc.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.ConnectionFactory;
 import br.com.comex.modelo.StatusCategoria;
 
 public class MainInsereCategoria {
