@@ -27,8 +27,7 @@ public class MainInsereCategoria {
 				adicionaCategoria(cat1.getNome(), cat1.getStatus(), state);
 				adicionaCategoria(cat2.getNome(), cat2.getStatus(), state);
 				adicionaCategoria(cat3.getNome(), cat3.getStatus(), state);
-				
-				System.out.println(cat1);
+			
 			}
 		}
 	}
