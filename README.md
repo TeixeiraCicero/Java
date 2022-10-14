@@ -2,4 +2,4 @@
 
 ## Java 
 
-### [Semana 8] Cursos: Java e java.io && Java e java.util
+### [Semana 9] Cursos: JDBC e Design Patterns
