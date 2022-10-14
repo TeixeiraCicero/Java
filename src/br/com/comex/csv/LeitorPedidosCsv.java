@@ -4,11 +4,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class LeitorPedidosCsv {
-	public ArrayList<PedidoCsv> leCsv() throws FileNotFoundException {
-		ArrayList<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
+	public List<PedidoCsv> leCsv() throws FileNotFoundException {
+		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 
 		InputStream input = new FileInputStream("pedidos.csv");
 		Scanner scan = new Scanner(input);
