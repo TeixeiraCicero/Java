@@ -13,7 +13,7 @@ public class MainRemoveCategoria {
 		try (Connection conect = Conexao.Conect()) {
 
 			try (PreparedStatement state = conect
-					.prepareStatement("DELETE FROM COMEX.CATEGORIA")){// WHERE STATUS = 'INATIVA'")) {
+					.prepareStatement("DELETE FROM COMEX.CATEGORIA WHERE STATUS = 'INATIVA'")) {
 				removeCategoria(state);
 			}
 		}
