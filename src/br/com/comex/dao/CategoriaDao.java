@@ -7,9 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.comex.jdbc.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.StatusCategoria;
 
 public class CategoriaDao {
 	
