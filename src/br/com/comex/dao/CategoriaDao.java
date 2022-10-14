@@ -1,108 +1,105 @@
 package br.com.comex.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.comex.jdbc.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.StatusCategoria;
 
 public class CategoriaDao {
-
+	
+	private Connection conect;
+	
+public CategoriaDao(Connection conect) {
+	
+}
 		public void insere(Categoria categoria) throws SQLException {
 			String sql = "INSERT INTO comex.categoria " 
-			           + "  (NOME,STATUS) " 
+			           + "(NOME,STATUS) " 
 					   + "VALUES "
-					   + "  (?, ?) ";
+					   + "(?, ?) ";
 
 			String[] colunaId = { "id" };
-			
-			PreparedStatement state = state.prepareStatement(sql, colunaId);
-			state.setString(1, nome);
-			state.setString(2, status.name());	
+			PreparedStatement state = conect.prepareStatement(sql, colunaId);
+			state.setString(1, categoria.getNome());
+			state.setString(2, categoria.getStatus().name());	
 			state.execute();
 
-			state.execute();
-
-			ResultSet rs = comando.getGeneratedKeys();
+			ResultSet rs = state.getGeneratedKeys();
 			rs.next();
-			
-			categoria.setId(rs.getLong(1));
-
+			categoria.setId(rs.getInt(1));
 			state.close();
 		}
 
-		public List<Conta> listaTodas() throws SQLException {
-			PreparedStatement comandoPreparado = conexao.prepareStatement("select * from banco.conta");
+		public List<Categoria> listaTodas() throws SQLException {
+			PreparedStatement comandoPreparado = conect.prepareStatement("select * from banco.conta");
 			
-			List<Conta> contas = new ArrayList<>();
+			List<Categoria> categorias = new ArrayList<>();
 			ResultSet registros = comandoPreparado.executeQuery();
 			while (registros.next()) {
-			 	contas.add(this.populaConta(registros));
+			 	categorias.add(this.criaCategoria(registros));
 			}
 			
 			registros.close();
 			comandoPreparado.close();
 			
-			return contas;
+			return categorias;
 		}
 		
-		public void exclui(Long id) throws SQLException {
-			String sql = "delete from banco.conta where id = ?";
+		public void exclui(Integer id) throws SQLException {
+			String sql = "DELETE FROM comex.categoria WHERE ID = ?";
 			
-			PreparedStatement ps = conexao.prepareStatement(sql);
-			ps.setLong(1, id);
-			ps.execute();
+			PreparedStatement state = conect.prepareStatement(sql);
+			state.setInt(1, id);
+			state.execute();
 			
-			ps.close();
+			state.close();
 		}
 		
-		public void altera(Conta conta) throws SQLException {
-			String sql = "update banco.conta "
-					   + "   set agencia = ?, "
-					   + "       numero  = ?, "
-					   + "       cliente = ?, "
-					   + "       saldo   = ? "
-					   + " where id = ?";
+		public void altera(Categoria categoria) throws SQLException {
+			String sql = "UPDATE comex.categoria "
+					   + "   SET NOME = ?, "
+					   + "   SET STATUS = ?, "
+					   + " WHERE ID = ?";
 			
+			PreparedStatement state = conect.prepareStatement(sql);
+			state.setString(1, categoria.getNome());
+			state.setString(2, categoria.getStatus().name());
+			state.setInt(3,categoria.getId());
+			state.execute();
 			
-			PreparedStatement ps = conexao.prepareStatement(sql);
-			ps.setLong(1, conta.getAgencia());
-			ps.setString(2, conta.getNumero());
-			ps.setString(3, conta.getCliente());
-			ps.setBigDecimal(4, conta.getSaldo());
-			ps.setLong(5, conta.getId());
-			ps.execute();
-			
-			ps.close();
+			state.close();
 		}
 
-		public Conta buscaPorId(long id) throws SQLException {
-			String sql = "select * from banco.conta where id = ?";
+		public Categoria buscaPorId(Integer id) throws SQLException {
+			String sql = "SELECT * FROM comex.categoria WHERE ID = ?";
 			
-			try (PreparedStatement ps = this.conexao.prepareStatement(sql)) {
-				ps.setLong(1, id);
+			try (PreparedStatement state = this.conect.prepareStatement(sql)) {
+				state.setInt(1, id);
 				
-				try (ResultSet registro = ps.executeQuery()) {
-					Conta conta = null;
+				try (ResultSet registro = state.executeQuery()) {
+					Categoria categoria = null;
 					if (registro.next()) {
-						conta = this.populaConta(registro);
+						categoria = this.criaCategoria(registro);
 					}
 						
-					return conta;
+					return categoria;
 				}
 			}
 		}
 		
-		private Conta populaConta(ResultSet registro) throws SQLException {
-			Conta conta = new Conta(
-				registro.getLong("agencia"), 
-				registro.getString("numero"), 
-				registro.getString("cliente"), 
-				registro.getBigDecimal("saldo")
+		private Categoria criaCategoria(ResultSet registro) throws SQLException {
+			Categoria categoria = new Categoria(
+				registro.getString("nome")
 			);
 			
-			conta.setId(registro.getLong("id"));
-			return conta;
+			categoria.setId(registro.getInt("id"));
+			return categoria;
 		}
-	}
 }
+
