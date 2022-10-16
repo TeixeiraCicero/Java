@@ -5,6 +5,7 @@ public class Categoria {
 	private int id;
 	private String nome;
 	private StatusCategoria statusCategoria;
+	private String stats;
 
 	public Categoria(String nome) {
 		if (nome.startsWith("9") || nome.startsWith("8") || nome.startsWith("7") || nome.startsWith("6")
@@ -59,9 +60,15 @@ public class Categoria {
 	public void setStatus(StatusCategoria statusCategoria) {
 		this.statusCategoria = statusCategoria;
 	}
+	
+	public void setStats(String stats) {
+		this.stats = stats;
+	}
+	
 
 	@Override
 	public String toString() {
 		return "Categoria " + getNome() + " ( " + getId() + " - " + getStatus() + " ). ";
 	}
+
 }

@@ -9,7 +9,8 @@ public class Produto {
 	private String descricao;
 	private BigDecimal precoUnitario;
 	private int qtdEstoque;
-	private Categoria categoria;
+//	private Categoria categoria;
+	private int categoria;
 	private Tipo tipo;
 
 	public Produto(String nome, BigDecimal precoUnitario, int qtdEstoque, Categoria categoria, Tipo tipo) {
@@ -38,17 +39,17 @@ public class Produto {
 		// this.categoria = categoria;
 		if (categoria == null) {
 			throw new IllegalArgumentException("Categoria Invalida");
-		} else {
-			this.categoria = categoria;
+//		} else {
+//			this.categoria = categoria;
 		}
 
 		this.tipo = tipo;
 
 	}
 
-	public Produto( String nome, BigDecimal precoUnitario, int qtdEstoque, Categoria categoria) {
+	public Produto(String nome, BigDecimal precoUnitario, int qtdEstoque, Categoria categoria) {
 		super();
-		
+
 		if (nome.startsWith("9") || nome.startsWith("8") || nome.startsWith("7") || nome.startsWith("6")
 				|| nome.startsWith("5") || nome.startsWith("4") || nome.startsWith("3") || nome.startsWith("2")
 				|| nome.startsWith("1") || nome.startsWith("0")) {
@@ -73,12 +74,46 @@ public class Produto {
 		// this.categoria = categoria;
 		if (categoria == null) {
 			throw new IllegalArgumentException("Categoria Invalida");
-		} else {
-			this.categoria = categoria;
+//		} else {
+//			this.categoria = categoria;
 		}
 
 		this.tipo = Tipo.NAO_ISENTO;
 	}
+
+	public Produto(String nome, BigDecimal precoUnitario, int qtdEstoque, int categoria, Tipo tipo) {
+		super();
+		if (nome.startsWith("9") || nome.startsWith("8") || nome.startsWith("7") || nome.startsWith("6")
+				|| nome.startsWith("5") || nome.startsWith("4") || nome.startsWith("3") || nome.startsWith("2")
+				|| nome.startsWith("1") || nome.startsWith("0")) {
+			throw new IllegalArgumentException("Nome Invalido, nao pode comecar com NUMERO");
+		}
+
+		if (nome.length() < 5) {
+			throw new IllegalArgumentException("Nome do Produto Invalido");
+		} else {
+			this.nome = nome;
+		}
+		if (precoUnitario.doubleValue() <= 0) {
+			throw new IllegalArgumentException("Preco Invalido");
+		} else {
+			this.precoUnitario = precoUnitario;
+		}
+		if (qtdEstoque <= 0) {
+			throw new IllegalArgumentException("Quantidade Invalida");
+		} else {
+			this.qtdEstoque = qtdEstoque;
+		}
+		// this.categoria = categoria;
+		if (categoria == 0) {
+			throw new IllegalArgumentException("Categoria Invalida");
+		} else {
+			this.categoria = categoria;
+		}
+
+		this.tipo = tipo;
+
+	}// constructor com id int
 
 	public int getId() {
 		return id;
@@ -86,14 +121,6 @@ public class Produto {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getNomeProduto() {
-		return nome;
-	}
-
-	public void setNomeProduto(String nomeProduto) {
-		this.nome = nomeProduto;
 	}
 
 	public String getDescricao() {
@@ -120,9 +147,9 @@ public class Produto {
 		this.qtdEstoque = qtdEstoque;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+//	public Categoria getCategoria() {
+//		return categoria;
+//	}
 
 	public BigDecimal calculaValorTotalEmEstoque() {
 		BigDecimal total = this.precoUnitario.multiply(new BigDecimal(this.qtdEstoque));
@@ -148,5 +175,23 @@ public class Produto {
 				+ ", qtdEstoque=" + qtdEstoque + ", categoria=" + categoria + ", tipo=" + tipo + "]";
 	}
 
-	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getCategoria() {
+		return categoria;
+	}
 }
