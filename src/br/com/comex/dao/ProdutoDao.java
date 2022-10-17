@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.StatusCategoria;
+import br.com.comex.modelo.Tipo;
 
 public class ProdutoDao {
 
@@ -103,17 +105,19 @@ public class ProdutoDao {
 		}
 	}
 
-//	private Produto criaProduto(ResultSet registro) throws SQLException {
-//		Produto produto = new Produto(registro.getString("nome"));// rever
-//
-//		produto.setId(registro.getInt("id"));
-//		state.setString(1, produto.getNome());
-//		state.setString(2, produto.getDescricao());
-//		state.setBigDecimal(3, produto.getPrecoUnitario());
-//		state.setInt(4, produto.getQtdEstoque());
-//		state.setInt(5, produto.getCategoria());
-//		state.setString(6, produto.getTipo().name());
-//		System.out.println(produto);
-//		return produto;
-//	}
+	private Produto criaProduto(ResultSet registro) throws SQLException {
+		Produto produto = new Produto(registro.getString("nome"), registro.getBigDecimal("PRECO_UNITARIO"),registro.getInt("QUANTIDADE_ESTOQUE"),
+				registro.getInt("CATEGORIA_ID"));
+
+		produto.setId(registro.getInt("ID"));
+		produto.setNome(registro.getString("NOME"));
+		produto.setDescricao(registro.getString("DESCRICAO"));
+		produto.setPrecoUnitario(registro.getBigDecimal("PRECO_UNITARIO"));
+		produto.setQtdEstoque(registro.getInt("QUANTIDADE_ESTOQUE"));
+		produto.setCategoria(registro.getInt("CATEGORIA_ID"));
+		Tipo tipo = Tipo.valueOf(registro.getString("TIPO"));
+		produto.setTipo(tipo);
+		System.out.println(produto);
+		return produto;
+	}
 }

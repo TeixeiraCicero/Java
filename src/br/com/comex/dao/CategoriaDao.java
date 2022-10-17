@@ -99,7 +99,8 @@ public class CategoriaDao {
 		Categoria categoria = new Categoria(registro.getString("nome"));
 
 		categoria.setId(registro.getInt("id"));
-		//jdbc nao suporta enum, queria saber como funciona quando usamos enum...
+		StatusCategoria status = StatusCategoria.valueOf(registro.getString("status"));
+		categoria.setStatus(status);
 		System.out.println(categoria);
 		return categoria;
 	}
