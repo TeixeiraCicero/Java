@@ -1,5 +1,8 @@
 package br.com.comex.modelo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Categoria {
 
 	private int id;
@@ -7,6 +10,9 @@ public class Categoria {
 	private StatusCategoria statusCategoria;
 	private String stats;
 
+	public Categoria(){
+		super();
+	}
 	public Categoria(String nome) {
 		if (nome.startsWith("9") || nome.startsWith("8") || nome.startsWith("7") || nome.startsWith("6")
 				|| nome.startsWith("5") || nome.startsWith("4") || nome.startsWith("3") || nome.startsWith("2")
