@@ -27,6 +27,7 @@ public class ComexWS {
 	
 
 	private CategoriaDao catDao = new CategoriaDao(conexao);
+	private ProdutoDao proDao = new ProdutoDao(conexao);
 	
 	
 	@WebMethod(operationName="listarCategorias")
@@ -44,7 +45,12 @@ public class ComexWS {
 		this.catDao.insere(categoria);
 		return categoria;
 	}
-	
+	@WebMethod(operationName="listarProdutos")
+	@WebResult(name="Produto")
+	public List<Produto> getProdutos() throws SQLException {
+		System.out.println("getProdutos");
+		List<Produto> lista = proDao.listaProdutos();
+		return lista;
+	}
 	
 }
-
