@@ -19,16 +19,11 @@ import br.com.comex.modelo.Produto;
 @WebService
 public class ComexWS {
 	
-
-	
 	Connection conexao = new ConnectionFactory().Conect();
 	
-	
-	
-
 	private CategoriaDao catDao = new CategoriaDao(conexao);
 	private ProdutoDao proDao = new ProdutoDao(conexao);
-	
+	private ClienteDao cliDao = new ClienteDao(conexao);
 	
 	@WebMethod(operationName="listarCategorias")
 	@WebResult(name="Categoria")
@@ -52,5 +47,11 @@ public class ComexWS {
 		List<Produto> lista = proDao.listaProdutos();
 		return lista;
 	}
-	
+	@WebMethod(operationName="listarClientes")
+	@WebResult(name="Cliente")
+	public List<Cliente> getClientes() throws SQLException {
+		System.out.println("getClientes");
+		List<Cliente> lista = cliDao.listaClientes();
+		return lista;
+	}
 }
