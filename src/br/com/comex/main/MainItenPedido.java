@@ -13,7 +13,7 @@ public class MainItenPedido {
 
 	public static void main(String[] args) {//double preco, int quantidadeNoPedido, Produto nomeProduto,
 		
-		Cliente cli1 = new Cliente(1, "Craudio", "01234567891", "41999875078","RUA XV",
+		Cliente cli1 = new Cliente("Craudio", "01234567891", "41999875078","RUA XV",
 				"5812", null, "centro", "curitiba",ClienteEstado.PR);
 		Categoria cat1 = new Categoria("INFORMATICAx");
 		Produto prod1 = new Produto("Mouse sem Fio Logi",new BigDecimal(109.99) , 20,cat1);
