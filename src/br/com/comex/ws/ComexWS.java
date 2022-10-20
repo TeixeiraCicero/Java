@@ -54,4 +54,10 @@ public class ComexWS {
 		List<Cliente> lista = cliDao.listaClientes();
 		return lista;
 	}
+	@WebMethod(operationName="AdicionaClientes")
+	@WebResult(name="Cliente")
+	public Cliente adicionarCliente(Cliente cliente) throws SQLException{
+		this.cliDao.insere(cliente);
+		return cliente;
+	}
 }
