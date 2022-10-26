@@ -106,7 +106,9 @@ public class ProdutoDao {
 	}
 
 	private Produto criaProduto(ResultSet registro) throws SQLException {
-		Produto produto = new Produto(registro.getString("nome"), registro.getBigDecimal("PRECO_UNITARIO"),registro.getInt("QUANTIDADE_ESTOQUE"),
+		Produto produto = new Produto(registro.getString("nome"), 
+				registro.getBigDecimal("PRECO_UNITARIO"),
+				registro.getInt("QUANTIDADE_ESTOQUE"),
 				registro.getInt("CATEGORIA_ID"));
 
 		produto.setId(registro.getInt("ID"));
