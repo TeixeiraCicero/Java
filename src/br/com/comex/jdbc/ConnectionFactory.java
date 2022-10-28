@@ -9,7 +9,8 @@ public class ConnectionFactory {
 	public Connection Conect(){ //throws SQLException {
 
 		try {
-			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "crtx");
+			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:xe", "system", "admin");
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

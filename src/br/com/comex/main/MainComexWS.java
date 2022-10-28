@@ -12,6 +12,6 @@ public class MainComexWS {
 		
 		ComexWS service = new ComexWS();
 		String url = "http://localhost:8080/ComexWS";
-		
+	
 		Endpoint.publish(url, service);
 	}}
